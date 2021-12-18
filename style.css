@@ -21,8 +21,8 @@ p {
   font-size: 1.5em;
 }
 
-input:invalid {
-  background-color: #ffdddd;
+input:focus{
+  background-color: #b8f7fd;
 }
 
 #input1, #input2, #math_operators, #submit, #reset {

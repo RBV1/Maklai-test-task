@@ -6,11 +6,7 @@ const result = document.getElementById("result");
 const math_operators = document.getElementById("math_operators");
 
 function inputLength() {
-  return !input1.value.length
-    ? input1.reportValidity()
-    : !input2.value.length
-    ? input2.reportValidity()
-    : input1.value.length && input2.value.length !== 0;
+    return input1.value.length && input2.value.length !== 0;
 }
 
 function add() {
@@ -57,16 +53,11 @@ function showCalculation() {
 function calculateAfterClick() {
   if (inputLength()) {
     showCalculation();
-  }
-}
-
-function calculateAfterKeyPress(event) {
-  if (inputLength() && event.keyCode === 13) {
-    showCalculation();
-  }
+  } else {
+    input1.reportValidity();
+    input2.reportValidity();
+  } 
 }
 
 submit.addEventListener("click", calculateAfterClick);
 reset.addEventListener("click", resetValue);
-input1.addEventListener("keypress", calculateAfterKeyPress);
-input2.addEventListener("keypress", calculateAfterKeyPress);
